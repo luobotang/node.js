@@ -6,6 +6,8 @@ node.js
 示例
 ----
 
+![示意图](node.png)
+
 ```javascript
 var data = {
     name: 'luobo',
@@ -39,5 +41,3 @@ node.helper.register('fmtTime', function (time) {
 
 document.getElementById('container').innerHTML = node(Render, data);
 ```
-
-![示意图](node.png)
