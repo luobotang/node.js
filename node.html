@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>测试</title>
+<meta charset="utf-8">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+}
+#container {
+    margin: 100px auto;
+    width: 600px;
+}
+ul {
+    list-style: none;
+}
+.work-desc {
+    padding: 0 10px;
+    color: red;
+}
+.work-index {
+    padding: 0 5px;
+    color: blue;
+}
+.start-item,
+.end-item {
+    color: orange;
+}
+</style>
+</head>
+<body>
+
+<div id="container"></div>
+
+<script src="node.js"></script>
+<script type="text/javascript">
+var data = {
+    name: 'luobo',
+    age: 18,
+    works: [
+        { starttime: '20141101', endtime: '20141105', desc: '完成xx功能开发' },
+        { starttime: '20141101', endtime: '20141105', desc: '完成xx功能开发' },
+        { starttime: '20141101', endtime: '20141105', desc: '完成xx功能开发' },
+        { starttime: '20141101', endtime: '20141105', desc: '完成xx功能开发' },
+        { starttime: '20141101', endtime: '20141105', desc: '完成xx功能开发' }
+    ]
+};
+var Render = function (data) {
+    return node('div',
+        node('div', data.name, ' - ', data.age),
+        node('ul',
+            node('li', {'class': 'start-item'}, '== start =='),
+            node.each(data.works, function (item, i) {
+                return node('li',
+                    node('span', {'class': 'work-index'}, i + 1, '.'),
+                    node('span', node.helper('fmtTime', item.starttime), ' - ', node.helper('fmtTime', item.endtime)),
+                    node('span', {'class': 'work-desc'}, item.desc));
+            }),
+            node('li', {'class': 'end-item'}, ' == end ==')
+        )
+    );
+};
+node.helper.register('fmtTime', function (time) {
+    return time.substr(0, 4) + '/' + time.substr(4, 2) + '/' + time.substr(6, 2);
+});
+
+document.getElementById('container').innerHTML = node(Render, data);
+</script>
+</body>
+</html>
