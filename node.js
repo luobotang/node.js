@@ -1,7 +1,8 @@
 (function (factory) {
 	window.node = factory();
 })(function () {
-	var ElementsNotClose = ' input img ';
+
+	var ElementsNotClose = ' input img br meta base link hr param ';
 	/*
 	 * Usage:
 	 *     node('div'[, {id: 'xxx', data: {value: 'xxx'}}][, <array of string> | <string> ...]
@@ -71,12 +72,6 @@
 			}
 		}
 		return ret;
-	}
-
-	function renderFoo(attrs) {
-		return node('ul', attrs,
-				node('li', null, 'luobo'),
-				node('li', null, 'tang'));
 	}
 
 	node.each = function (items, fn) {
