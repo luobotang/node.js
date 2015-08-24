@@ -1,0 +1,27 @@
+{
+  "name": "luobo-node",
+  "version": "0.1.0",
+  "description": "用函数调用的方式来构建 HTML 片段。",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-browserify": "^4.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node ./test/test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luobotang/node.js.git"
+  },
+  "author": "luobotang",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luobotang/node.js/issues"
+  },
+  "homepage": "https://github.com/luobotang/node.js#readme"
+}
